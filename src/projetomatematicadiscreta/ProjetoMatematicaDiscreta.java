@@ -16,23 +16,60 @@ public class ProjetoMatematicaDiscreta {
     public static void main(String[] args) {
         // TODO code application logic here
     }
-    
-    public int grauGrafoNaoDirigido(int[][] grafo){                        
-        int grau = 0;
-        
+
+    public int grauGrafoNaoDirigido(int[][] grafo) {
+        int grauGrafo = 0;
+        int grauVertice = 0;
+
         for (int i = 0; i < grafo.length; i++) {
-            
+
+            grauVertice = 0;
+
             for (int j = 0; j < grafo[i].length; j++) {
-                
-                if(){
-                    
+
+                if (grafo[i][j] == 1) {
+
+                    grauVertice++;
+
                 }
-                
-                
+
             }
-            
+
+            if (grauVertice > grauGrafo) {
+
+                grauGrafo = grauVertice;
+            }
+
         }
-        
-        return grau;
+
+        return grauGrafo;
+    }
+
+    public int grauGrafoDirigido(int[][] grafo) {
+        int grauGrafo = 0;
+        int grauVertice = 0;
+
+        for (int i = 0; i < grafo.length; i++) {
+
+            grauVertice = 0;
+
+            for (int j = 0; j < grafo[i].length; j++) {
+
+                if (grafo[i][j] == 1) {
+
+                    grauVertice++;
+
+                }
+
+            }
+
+            if (grauVertice > grauGrafo) {
+
+                grauGrafo = grauVertice;
+            }
+
+        }
+
+        return grauGrafo;
     }
 }
