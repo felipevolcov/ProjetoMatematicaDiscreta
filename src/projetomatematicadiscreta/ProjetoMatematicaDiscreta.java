@@ -78,4 +78,16 @@ public class ProjetoMatematicaDiscreta {
 
         return grauGrafo;
     }
+
+    public boolean verticeIsolado(int[][] grafo, int vertice) {
+
+        int grauVertice = 0;
+        for (int i = 0; i < grafo[vertice].length; i++) {
+            if (grafo[vertice][i] > 0) {
+                grauVertice++;
+            }
+        }
+        
+        return grauVertice == 0;
+    }
 }
