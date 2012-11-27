@@ -61,6 +61,12 @@ public class ProjetoMatematicaDiscreta {
 
                 }
 
+                if (grafo[j][i] == 1) {
+
+                    grauVertice++;
+
+                }                
+                
             }
 
             if (grauVertice > grauGrafo) {
