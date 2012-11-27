@@ -4,6 +4,8 @@
  */
 package projetomatematicadiscreta;
 
+import java.util.Random;
+
 /**
  *
  * @author Felipe V Nambara
@@ -13,7 +15,8 @@ public class ProjetoMatematicaDiscreta {
     /**
      * @param args the command line arguments
      */
-    
+    public static final int TAMANHOGRAFO = 10;
+
     public static void main(String[] args) {
         // TODO code application logic here
     }
@@ -66,8 +69,8 @@ public class ProjetoMatematicaDiscreta {
 
                     grauVertice++;
 
-                }                
-                
+                }
+
             }
 
             if (grauVertice > grauGrafo) {
@@ -79,12 +82,34 @@ public class ProjetoMatematicaDiscreta {
 
         return grauGrafo;
     }
-    
-    public int[][] inicializadorGrafo(){
-        int[][] grafo = null;
-        
-        
+
+    public boolean verticeIsolado(int[][] grafo, int vertice) {
+
+        int grauVertice = 0;
+        for (int i = 0; i < grafo[vertice].length; i++) {
+            if (grafo[vertice][i] > 0) {
+                grauVertice++;
+            }
+        }
+
+        return grauVertice == 0;
+    }
+
+    public int[][] inicializadorGrafo() {
+        int[][] grafo = new int[TAMANHOGRAFO][TAMANHOGRAFO];
+
+        for (int i = 0; i < grafo.length; i++) {
+
+            for (int j = 0; j < grafo[i].length; j++) {
+                
+                grafo[i][j] = (new Random(1)).nextInt(j);
+                grafo[j][i] = (new Random(1)).nextInt();;
+            }
+
+        }
+
+
         return grafo;
-        
+
     }
 }
