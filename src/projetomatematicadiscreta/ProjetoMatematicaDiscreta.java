@@ -65,8 +65,8 @@ public class ProjetoMatematicaDiscreta {
 
                     grauVertice++;
 
-                }                
-                
+                }
+
             }
 
             if (grauVertice > grauGrafo) {
@@ -87,7 +87,20 @@ public class ProjetoMatematicaDiscreta {
                 grauVertice++;
             }
         }
-        
+
         return grauVertice == 0;
+    }
+
+    public boolean grafoCompleto(int[][] grafo) {
+        boolean completo = true;
+        for (int i = 0; i < grafo.length; i++) {
+            for (int j = 0; j < grafo[i].length; j++) {
+                if(!(i == j)){
+                    completo = completo && grafo[i][j] > 0;
+                }
+            }
+        }
+        
+        return completo;
     }
 }
