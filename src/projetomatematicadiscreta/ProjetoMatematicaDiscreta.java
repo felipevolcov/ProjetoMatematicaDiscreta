@@ -13,6 +13,7 @@ public class ProjetoMatematicaDiscreta {
     /**
      * @param args the command line arguments
      */
+    
     public static void main(String[] args) {
         // TODO code application logic here
     }
@@ -77,5 +78,13 @@ public class ProjetoMatematicaDiscreta {
         }
 
         return grauGrafo;
+    }
+    
+    public int[][] inicializadorGrafo(){
+        int[][] grafo = null;
+        
+        
+        return grafo;
+        
     }
 }
