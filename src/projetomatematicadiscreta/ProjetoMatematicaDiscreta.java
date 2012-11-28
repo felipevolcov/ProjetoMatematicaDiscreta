@@ -119,14 +119,14 @@ public class ProjetoMatematicaDiscreta {
 
                     } else {
 
-                        grafo[i][j] = grafo[j][i] = (int) Math.round(Math.random());                        
+                        grafo[i][j] = grafo[j][i] = (int) Math.round(Math.random());
 
                     }
 
-                }else{
-                    
+                } else {
+
                     grafo[i][j] = grafo[i][j] = 0;
-                    
+
                 }
 
             }
@@ -137,5 +137,17 @@ public class ProjetoMatematicaDiscreta {
         return grafo;
 
     }
-    
+
+    public boolean grafoCompleto(int[][] grafo) {
+        boolean completo = true;
+        for (int i = 0; i < grafo.length; i++) {
+            for (int j = 0; j < grafo[i].length; j++) {
+                if (!(i == j)) {
+                    completo = completo && grafo[i][j] > 0;
+                }
+            }
+        }
+
+        return completo;
+    }
 }
