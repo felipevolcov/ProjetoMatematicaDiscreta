@@ -15,13 +15,18 @@ public class ProjetoMatematicaDiscreta {
     /**
      * @param args the command line arguments
      */
-    public static final int TAMANHOGRAFO = 10;
+    public static final int TAMANHOGRAFO = 5;
 
     public static void main(String[] args) {
-        // TODO code application logic here
+        int[][] grafoDirigido = inicializadorGrafo(true);
+        int[][] grafoNaoDirigido = inicializadorGrafo(false);
+
+        System.out.println("Grau grafo não dirigido: " + grauGrafoNaoDirigido(grafoNaoDirigido));
+        System.out.println("Grau grafo dirigido: " + grauGrafoNaoDirigido(grafoDirigido));
+
     }
 
-    public int grauGrafoNaoDirigido(int[][] grafo) {
+    public static int grauGrafoNaoDirigido(int[][] grafo) {
         int grauGrafo = 0;
         int grauVertice = 0;
 
@@ -49,7 +54,7 @@ public class ProjetoMatematicaDiscreta {
         return grauGrafo;
     }
 
-    public int grauGrafoDirigido(int[][] grafo) {
+    public static int grauGrafoDirigido(int[][] grafo) {
         int grauGrafo = 0;
         int grauVertice = 0;
 
@@ -59,18 +64,21 @@ public class ProjetoMatematicaDiscreta {
 
             for (int j = 0; j < grafo[i].length; j++) {
 
-                if (grafo[i][j] == 1) {
+                if (i != j) {
 
-                    grauVertice++;
+                    if (grafo[i][j] == 1) {
+
+                        grauVertice++;
+
+                    }
+
+                    if (grafo[j][i] == 1) {
+
+                        grauVertice++;
+
+                    }
 
                 }
-
-                if (grafo[j][i] == 1) {
-
-                    grauVertice++;
-
-                }
-
             }
 
             if (grauVertice > grauGrafo) {
@@ -83,7 +91,7 @@ public class ProjetoMatematicaDiscreta {
         return grauGrafo;
     }
 
-    public boolean verticeIsolado(int[][] grafo, int vertice) {
+    public static boolean verticeIsolado(int[][] grafo, int vertice) {
 
         int grauVertice = 0;
         for (int i = 0; i < grafo[vertice].length; i++) {
@@ -95,15 +103,32 @@ public class ProjetoMatematicaDiscreta {
         return grauVertice == 0;
     }
 
-    public int[][] inicializadorGrafo() {
+    public static int[][] inicializadorGrafo(boolean dirigido) {
         int[][] grafo = new int[TAMANHOGRAFO][TAMANHOGRAFO];
 
         for (int i = 0; i < grafo.length; i++) {
 
             for (int j = 0; j < grafo[i].length; j++) {
-                
-                grafo[i][j] = (new Random(1)).nextInt(j);
-                grafo[j][i] = (new Random(1)).nextInt();;
+
+                if (i != j) {
+
+                    if (dirigido) {
+
+                        grafo[i][j] = (int) Math.round(Math.random());
+                        grafo[j][i] = (int) Math.round(Math.random());
+
+                    } else {
+
+                        grafo[i][j] = grafo[j][i] = (int) Math.round(Math.random());                        
+
+                    }
+
+                }else{
+                    
+                    grafo[i][j] = grafo[i][j] = 0;
+                    
+                }
+
             }
 
         }
@@ -112,4 +137,5 @@ public class ProjetoMatematicaDiscreta {
         return grafo;
 
     }
+    
 }
