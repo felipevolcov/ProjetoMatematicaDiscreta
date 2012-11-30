@@ -30,8 +30,7 @@ public class ProjetoMatematicaDiscreta {
         System.out.println("Vértice isolado ? : " + verticeIsolado(grafoNaoConexo, 8));
         System.out.println("Tem caminho ? : " + temCaminho(grafoDirigido, 0, 8));
         System.out.println("Conexo ? : " + grafoConexo(grafoDirigido));
-        System.out.println("Conexo ? : " + grafoConexo(grafoNaoConexo));
-        System.out.println("Conexo ? : " + grafoConexo(grafoCompleto));
+        System.out.println("Conexo ? : " + grafoConexo(grafoNaoConexo));        
 
     }
 
