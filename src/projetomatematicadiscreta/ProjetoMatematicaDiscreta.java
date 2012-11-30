@@ -1,7 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package projetomatematicadiscreta;
 
 /**
@@ -10,20 +7,16 @@ package projetomatematicadiscreta;
  */
 public class ProjetoMatematicaDiscreta {
 
-    /**
-     * @param args the command line arguments
-     */
     public static final int TAMANHOGRAFO = 1000;
     public static int[] visitado = new int[TAMANHOGRAFO];
 
     public static void main(String[] args) {
+        /* Inicializando alguns grafos para testes */
         int[][] grafoDirigido = inicializadorGrafoDirigido();
         int[][] grafoNaoDirigido = inicializadorGrafoNaoDirigido();
         int[][] grafoNaoConexo = inicializadorGrafoNaoConexo();
         int[][] grafoCompleto = inicializadorGrafoCompleto();
 
-        /*teste*/
-        
         System.out.println("Grau grafo não dirigido: " + grauGrafoNaoDirigido(grafoNaoDirigido));
         System.out.println("Grau grafo dirigido: " + grauGrafoNaoDirigido(grafoDirigido));
         System.out.println("Grafo completo ? : " + grafoCompleto(grafoDirigido));
@@ -32,31 +25,20 @@ public class ProjetoMatematicaDiscreta {
         System.out.println("Vértice isolado ? : " + verticeIsolado(grafoNaoConexo, 8));
         System.out.println("Tem caminho ? : " + temCaminho(grafoDirigido, 0, 8));
         System.out.println("Conexo ? : " + grafoConexo(grafoDirigido));
-        System.out.println("Conexo ? : " + grafoConexo(grafoNaoConexo));        
+        System.out.println("Conexo ? : " + grafoConexo(grafoNaoConexo));
 
     }
 
+    /* Percorre cada nó para verificar se há caminho entre todos eles */
     public static boolean grafoConexo(int[][] grafo) {
-        boolean conexo = false;
-
-        for (int i = 0; i < grafo.length; i++) {
-
-            conexo = false;
-
-            for (int j = 0; j < grafo[i].length; j++) {
-
-                if (grafo[i][j] == 1 || grafo[j][i] == 1) {
-
-                    conexo = true;
-
-                    break;
-
-                }
-
+        boolean conexo = true;
+        
+        for (int u = 0; u < grafo.length; u++) {
+            for (int v = 0; v < grafo[u].length; v++) {
+                conexo = conexo && temCaminho(grafo, u, v);
             }
-
         }
-
+        
         return conexo;
     }
 
@@ -65,24 +47,17 @@ public class ProjetoMatematicaDiscreta {
         int grauVertice = 0;
 
         for (int i = 0; i < grafo.length; i++) {
-
             grauVertice = 0;
 
             for (int j = 0; j < grafo[i].length; j++) {
-
                 if (grafo[i][j] == 1) {
-
                     grauVertice++;
-
                 }
-
             }
 
             if (grauVertice > grauGrafo) {
-
                 grauGrafo = grauVertice;
             }
-
         }
 
         return grauGrafo;
@@ -93,41 +68,31 @@ public class ProjetoMatematicaDiscreta {
         int grauVertice = 0;
 
         for (int i = 0; i < grafo.length; i++) {
-
             grauVertice = 0;
 
             for (int j = 0; j < grafo[i].length; j++) {
-
                 if (i != j) {
-
                     if (grafo[i][j] == 1) {
-
                         grauVertice++;
-
                     }
 
                     if (grafo[j][i] == 1) {
-
                         grauVertice++;
-
                     }
-
                 }
             }
 
             if (grauVertice > grauGrafo) {
-
                 grauGrafo = grauVertice;
             }
-
         }
 
         return grauGrafo;
     }
 
     public static boolean verticeIsolado(int[][] grafo, int vertice) {
-
         int grauVertice = 0;
+        
         for (int i = 0; i < grafo[vertice].length; i++) {
             if (grafo[vertice][i] > 0) {
                 grauVertice++;
