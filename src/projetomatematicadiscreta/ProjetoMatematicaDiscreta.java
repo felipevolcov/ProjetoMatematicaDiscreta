@@ -22,6 +22,8 @@ public class ProjetoMatematicaDiscreta {
         int[][] grafoNaoConexo = inicializadorGrafoNaoConexo();
         int[][] grafoCompleto = inicializadorGrafoCompleto();
 
+        /*teste*/
+        
         System.out.println("Grau grafo não dirigido: " + grauGrafoNaoDirigido(grafoNaoDirigido));
         System.out.println("Grau grafo dirigido: " + grauGrafoNaoDirigido(grafoDirigido));
         System.out.println("Grafo completo ? : " + grafoCompleto(grafoDirigido));
