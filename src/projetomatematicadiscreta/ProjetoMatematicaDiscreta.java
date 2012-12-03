@@ -210,6 +210,7 @@ public class ProjetoMatematicaDiscreta {
         return caminho(grafo, u, v);
     }
 
+    // SEMPRE grafo[i][j] = grafo[j][i]
     public static int[][] inicializadorGrafoNaoDirigido() {
         int[][] grafo = new int[9][9];
 
@@ -258,18 +259,19 @@ public class ProjetoMatematicaDiscreta {
         grafo[5][7] = grafo[7][5] = 1;
         grafo[5][8] = grafo[8][5] = 0;
 
-        grafo[6][6] = grafo[6][6] = 0;
+        grafo[6][6] = 0;
         grafo[6][7] = grafo[7][6] = 1;
         grafo[6][8] = grafo[8][6] = 1;
 
-        grafo[7][7] = grafo[7][7] = 0;
+        grafo[7][7] = 0;
         grafo[7][8] = grafo[8][7] = 1;
 
-        grafo[8][8] = grafo[8][8] = 0;
+        grafo[8][8] = 0;
 
         return grafo;
     }
 
+    // ADMITE grafo[i][j] != grafo[j][i]
     public static int[][] inicializadorGrafoDirigido() {
         int[][] grafo = new int[9][9];
 
@@ -367,6 +369,7 @@ public class ProjetoMatematicaDiscreta {
         return grafo;
     }
 
+    // POSSUI vértices que não possuem caminhos a outros vértices
     public static int[][] inicializadorGrafoNaoConexo() {
         int[][] grafo = new int[9][9];
 
@@ -561,6 +564,7 @@ public class ProjetoMatematicaDiscreta {
         return grafo;
     }
 
+    // Existem arestas entre todos os vértices, exceto quando i = j
     public static int[][] inicializadorGrafoCompleto() {
         int[][] grafo = new int[TAMANHOGRAFO][TAMANHOGRAFO];
 
