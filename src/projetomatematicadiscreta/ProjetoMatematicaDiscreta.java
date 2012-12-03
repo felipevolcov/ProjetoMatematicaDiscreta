@@ -77,18 +77,20 @@ public class ProjetoMatematicaDiscreta {
 
         for (int l = 0; l < grafo[vertice].length; l++) {
 
-            if (coresVertices[l] == CorDoVertice.Cinza) {
+            if (grafo[vertice][l]==1) {
 
-                return false;
+                if (coresVertices[l] == CorDoVertice.Cinza) {
+
+                    return false;
+
+                }
+
+                if (coresVertices[l] == CorDoVertice.Branco) {
+
+                    return dfsArvore(l, grafo, coresVertices);
+                }
 
             }
-
-            if (coresVertices[l] == CorDoVertice.Branco) {
-
-                return dfsArvore(l, grafo, coresVertices);
-            }
-
-
         }
 
         coresVertices[vertice] = CorDoVertice.Preto;
