@@ -17,13 +17,14 @@ public class ProjetoMatematicaDiscreta {
         int[][] grafoNaoConexo = inicializadorGrafoNaoConexo();
         int[][] grafoCompleto = inicializadorGrafoCompleto();
         int[][] grafoArvore = inicializadorGrafoArvore();
+        int[][] grafoVerticeIsolado = inicializadorVerticeIsolado();
 
         System.out.println("[grafoNaoDirigido] Grau: " + grauGrafoNaoDirigido(grafoNaoDirigido));
         System.out.println("[grafoDirigido] Grau: " + grauGrafoNaoDirigido(grafoDirigido));
         System.out.println("[grafoDirigido] Completo? " + grafoCompleto(grafoDirigido));
         System.out.println("[grafoCompleto] Completo? " + grafoCompleto(grafoCompleto));
         System.out.println("[grafoDirigido] Vértice 5 é isolado? " + verticeIsolado(grafoDirigido, 5));
-        System.out.println("[grafoNaoConexo] Vértice 8 é isolado? " + verticeIsolado(grafoNaoConexo, 8));
+        System.out.println("[grafoVerticeIsolado] Vértice 8 é isolado? " + verticeIsolado(grafoVerticeIsolado, 1));
         System.out.println("[grafoDirigido] Tem caminho entre 0 e 8? " + temCaminho(grafoDirigido, 0, 8));
         System.out.println("[grafoDirigido] Tem caminho entre 7 e 0? " + temCaminho(grafoDirigido, 7, 0));
         System.out.println("[grafoDirigido] É conexo? " + grafoDirigidoConexo(grafoDirigido));
@@ -565,6 +566,32 @@ public class ProjetoMatematicaDiscreta {
 
         return grafo;
     }
+    
+    public static int[][] inicializadorVerticeIsolado() {
+        int[][] grafo = new int[2][2];
+        
+        grafo[0][0] = 0;
+        grafo[0][1] = 0;
+        grafo[0][2] = 1;
+        grafo[0][3] = 1;
+        
+        grafo[1][0] = 0;
+        grafo[1][1] = 0;
+        grafo[1][2] = 0;
+        grafo[1][3] = 0;
+        
+        grafo[2][0] = 1;
+        grafo[2][1] = 0;
+        grafo[2][2] = 0;
+        grafo[2][3] = 1;
+        
+        grafo[3][0] = 1;
+        grafo[3][1] = 0;
+        grafo[3][2] = 1;
+        grafo[3][3] = 0;
+        
+        return grafo;
+    }
 
     // Existem arestas entre todos os vértices, exceto quando i = j
     public static int[][] inicializadorGrafoCompleto() {
@@ -587,4 +614,6 @@ public class ProjetoMatematicaDiscreta {
         return grafo;
 
     }
+    
+    
 }
