@@ -547,6 +547,7 @@ public class ProjetoMatematicaDiscreta {
 
     public static boolean grafoCompleto(int[][] grafo) {
         boolean completo = true;
+        
         for (int i = 0; i < grafo.length; i++) {
             for (int j = 0; j < grafo[i].length; j++) {
                 if (!(i == j)) {
@@ -560,7 +561,6 @@ public class ProjetoMatematicaDiscreta {
     
 
     public static boolean caminho(int[][] grafo, int u, int v) {
-
         if (u == v) {
             return true;
         }
@@ -568,19 +568,15 @@ public class ProjetoMatematicaDiscreta {
         visitado[u] = 1;
 
         for (int i = 0; i < grafo.length; i++) {
-
             if (grafo[u][i] == 1 && visitado[i] == 0 && caminho(grafo, i, v)) {
                 return true;
             }
-
         }
 
         return false;
-
     }
 
     public static boolean temCaminho(int[][] grafo, int u, int v) {
-
         for (int i = 0; i < visitado.length; i++) {
             visitado[i] = 0;
         }
