@@ -1,4 +1,3 @@
-
 package projetomatematicadiscreta;
 
 /**
@@ -10,8 +9,7 @@ public class ProjetoMatematicaDiscreta {
 
     public static final int TAMANHOGRAFO = 1000;
     public static int[] visitado = new int[TAMANHOGRAFO];
-    
-    
+
     public static void main(String[] args) {
         /* Inicializando alguns grafos para testes */
         int[][] grafoDirigido = inicializadorGrafoDirigido();
@@ -33,83 +31,84 @@ public class ProjetoMatematicaDiscreta {
 
     }
 
-    public static enum CorDoVertice{
+    public static enum CorDoVertice {
+
         Branco, Cinza, Preto
     }
-    
+
     /* Verifica se o grafo possui ciclos*/
-    
-    public static boolean grafoArvore(int[][] grafo){
-        
-        if(grafoDirigidoConexo(grafo) && !grafoComCiclos(grafo)){
-            
+    public static boolean grafoArvore(int[][] grafo) {
+
+        if (grafoDirigidoConexo(grafo) && !grafoComCiclos(grafo)) {
+
             return true;
-            
-        }else{
-            
+
+        } else {
+
             return false;
         }
     }
-    public static boolean grafoComCiclos(int[][] grafo){       
+
+    public static boolean grafoComCiclos(int[][] grafo) {
         CorDoVertice[] coresVertices = new CorDoVertice[grafo.length];
-        
+
         for (int i = 0; i < coresVertices.length; i++) {
             coresVertices[i] = CorDoVertice.Branco;
         }
-        
+
         for (int j = 0; j < coresVertices.length; j++) {
-            
-            if(coresVertices[j]==CorDoVertice.Branco){
-                                
-                if(!dfsArvore(j, grafo, coresVertices)){
+
+            if (coresVertices[j] == CorDoVertice.Branco) {
+
+                if (!dfsArvore(j, grafo, coresVertices)) {
                     return false;
                 }
-                        
-            }           
-            
+
+            }
+
         }
-        
+
         return true;
     }
-    
-    public static boolean dfsArvore(int vertice, int[][] grafo, CorDoVertice[] coresVertices){
-        
+
+    public static boolean dfsArvore(int vertice, int[][] grafo, CorDoVertice[] coresVertices) {
+
         coresVertices[vertice] = CorDoVertice.Cinza;
-        
+
         for (int l = 0; l < grafo[vertice].length; l++) {
-            
-            if(coresVertices[l] == CorDoVertice.Cinza){
-                
+
+            if (coresVertices[l] == CorDoVertice.Cinza) {
+
                 return false;
-                
+
             }
-            
-            if(coresVertices[l] == CorDoVertice.Branco){
-                
+
+            if (coresVertices[l] == CorDoVertice.Branco) {
+
                 return dfsArvore(l, grafo, coresVertices);
             }
-                
-            
+
+
         }
-        
+
         coresVertices[vertice] = CorDoVertice.Preto;
-        
+
         return true;
     }
-    
+
     /* Percorre cada nó para verificar se há caminho entre todos eles */
     public static boolean grafoDirigidoConexo(int[][] grafo) {
         boolean conexo = true;
-        
+
         for (int u = 0; u < grafo.length; u++) {
             for (int v = 0; v < grafo[u].length; v++) {
-                if( v >= u){
+                if (v >= u) {
                     conexo = conexo && temCaminho(grafo, u, v);
                 }
-                
+
             }
         }
-        
+
         return conexo;
     }
 
@@ -163,7 +162,7 @@ public class ProjetoMatematicaDiscreta {
 
     public static boolean verticeIsolado(int[][] grafo, int vertice) {
         int grauVertice = 0;
-        
+
         for (int i = 0; i < grafo[vertice].length; i++) {
             if (grafo[vertice][i] > 0) {
                 grauVertice++;
@@ -171,6 +170,44 @@ public class ProjetoMatematicaDiscreta {
         }
 
         return grauVertice == 0;
+    }
+
+    public static boolean grafoCompleto(int[][] grafo) {
+        boolean completo = true;
+
+        for (int i = 0; i < grafo.length; i++) {
+            for (int j = 0; j < grafo[i].length; j++) {
+                if (!(i == j)) {
+                    completo = completo && grafo[i][j] > 0;
+                }
+            }
+        }
+
+        return completo;
+    }
+
+    public static boolean caminho(int[][] grafo, int u, int v) {
+        if (u == v) {
+            return true;
+        }
+
+        visitado[u] = 1;
+
+        for (int i = 0; i < grafo.length; i++) {
+            if (grafo[u][i] == 1 && visitado[i] == 0 && caminho(grafo, i, v)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public static boolean temCaminho(int[][] grafo, int u, int v) {
+        for (int i = 0; i < visitado.length; i++) {
+            visitado[i] = 0;
+        }
+
+        return caminho(grafo, u, v);
     }
 
     public static int[][] inicializadorGrafoNaoDirigido() {
@@ -522,8 +559,8 @@ public class ProjetoMatematicaDiscreta {
 
 
         return grafo;
-    }    
-    
+    }
+
     public static int[][] inicializadorGrafoCompleto() {
         int[][] grafo = new int[TAMANHOGRAFO][TAMANHOGRAFO];
 
@@ -543,44 +580,5 @@ public class ProjetoMatematicaDiscreta {
 
         return grafo;
 
-    }
-
-    public static boolean grafoCompleto(int[][] grafo) {
-        boolean completo = true;
-        
-        for (int i = 0; i < grafo.length; i++) {
-            for (int j = 0; j < grafo[i].length; j++) {
-                if (!(i == j)) {
-                    completo = completo && grafo[i][j] > 0;
-                }
-            }
-        }
-
-        return completo;
-    }
-    
-
-    public static boolean caminho(int[][] grafo, int u, int v) {
-        if (u == v) {
-            return true;
-        }
-
-        visitado[u] = 1;
-
-        for (int i = 0; i < grafo.length; i++) {
-            if (grafo[u][i] == 1 && visitado[i] == 0 && caminho(grafo, i, v)) {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-    public static boolean temCaminho(int[][] grafo, int u, int v) {
-        for (int i = 0; i < visitado.length; i++) {
-            visitado[i] = 0;
-        }
-
-        return caminho(grafo, u, v);
     }
 }
