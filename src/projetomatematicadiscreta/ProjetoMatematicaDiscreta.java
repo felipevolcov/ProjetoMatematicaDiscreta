@@ -18,16 +18,18 @@ public class ProjetoMatematicaDiscreta {
         int[][] grafoCompleto = inicializadorGrafoCompleto();
         int[][] grafoArvore = inicializadorGrafoArvore();
 
-        System.out.println("Grau grafo não dirigido: " + grauGrafoNaoDirigido(grafoNaoDirigido));
-        System.out.println("Grau grafo dirigido: " + grauGrafoNaoDirigido(grafoDirigido));
-        System.out.println("Grafo completo ? : " + grafoCompleto(grafoDirigido));
-        System.out.println("Grafo completo ? : " + grafoCompleto(grafoCompleto));
-        System.out.println("Vértice isolado ? : " + verticeIsolado(grafoDirigido, 5));
-        System.out.println("Vértice isolado ? : " + verticeIsolado(grafoNaoConexo, 8));
-        System.out.println("Tem caminho ? : " + temCaminho(grafoDirigido, 0, 8));
-        System.out.println("Conexo ? : " + grafoDirigidoConexo(grafoDirigido));
-        System.out.println("Conexo ? : " + grafoDirigidoConexo(grafoNaoConexo));
-        System.out.println("Árvore ? : " + grafoArvore(grafoArvore));
+        System.out.println("[grafoNaoDirigido] Grau: " + grauGrafoNaoDirigido(grafoNaoDirigido));
+        System.out.println("[grafoDirigido] Grau: " + grauGrafoNaoDirigido(grafoDirigido));
+        System.out.println("[grafoDirigido] Completo? " + grafoCompleto(grafoDirigido));
+        System.out.println("[grafoCompleto] Completo? " + grafoCompleto(grafoCompleto));
+        System.out.println("[grafoDirigido] Vértice 5 é isolado? " + verticeIsolado(grafoDirigido, 5));
+        System.out.println("[grafoNaoConexo] Vértice 8 é isolado? " + verticeIsolado(grafoNaoConexo, 8));
+        System.out.println("[grafoDirigido] Tem caminho entre 0 e 8? " + temCaminho(grafoDirigido, 0, 8));
+        System.out.println("[grafoDirigido] Tem caminho entre 7 e 0? " + temCaminho(grafoDirigido, 7, 0));
+        System.out.println("[grafoDirigido] É conexo? " + grafoDirigidoConexo(grafoDirigido));
+        System.out.println("[grafoNaoConexo] É conexo? " + grafoDirigidoConexo(grafoNaoConexo));
+        System.out.println("[grafoArvore] É uma árvore? " + grafoArvore(grafoArvore));
+        System.out.println("[grafoDirigido] É uma árvore? " + grafoArvore(grafoDirigido));
 
     }
 
