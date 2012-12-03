@@ -375,36 +375,36 @@ public class ProjetoMatematicaDiscreta {
 
         grafo[0][0] = 0;
         grafo[0][1] = 1;
-        grafo[0][2] = 1;
+        grafo[0][2] = 0;
         grafo[0][3] = 0;
-        grafo[0][4] = 1;
+        grafo[0][4] = 0;
         grafo[0][5] = 0;
         grafo[0][6] = 0;
         grafo[0][7] = 0;
         grafo[0][8] = 0;
 
-        grafo[1][0] = 0;
+        grafo[1][0] = 1;
         grafo[1][1] = 0;
-        grafo[1][2] = 1;
+        grafo[1][2] = 0;
         grafo[1][3] = 1;
-        grafo[1][4] = 1;
+        grafo[1][4] = 0;
         grafo[1][5] = 0;
-        grafo[1][6] = 1;
+        grafo[1][6] = 0;
         grafo[1][7] = 0;
         grafo[1][8] = 0;
 
         grafo[2][0] = 0;
-        grafo[2][1] = 1;
+        grafo[2][1] = 0;
         grafo[2][2] = 0;
         grafo[2][3] = 0;
-        grafo[2][4] = 1;
+        grafo[2][4] = 0;
         grafo[2][5] = 1;
         grafo[2][6] = 0;
         grafo[2][7] = 1;
         grafo[2][8] = 0;
 
         grafo[3][0] = 0;
-        grafo[3][1] = 0;
+        grafo[3][1] = 1;
         grafo[3][2] = 0;
         grafo[3][3] = 0;
         grafo[3][4] = 1;
@@ -418,16 +418,16 @@ public class ProjetoMatematicaDiscreta {
         grafo[4][2] = 0;
         grafo[4][3] = 1;
         grafo[4][4] = 0;
-        grafo[4][5] = 1;
-        grafo[4][6] = 1;
-        grafo[4][7] = 1;
+        grafo[4][5] = 0;
+        grafo[4][6] = 0;
+        grafo[4][7] = 0;
         grafo[4][8] = 0;
 
         grafo[5][0] = 0;
         grafo[5][1] = 0;
-        grafo[5][2] = 0;
+        grafo[5][2] = 1;
         grafo[5][3] = 0;
-        grafo[5][4] = 1;
+        grafo[5][4] = 0;
         grafo[5][5] = 0;
         grafo[5][6] = 0;
         grafo[5][7] = 1;
@@ -436,20 +436,20 @@ public class ProjetoMatematicaDiscreta {
         grafo[6][0] = 0;
         grafo[6][1] = 0;
         grafo[6][2] = 0;
-        grafo[6][3] = 0;
+        grafo[6][3] = 1;
         grafo[6][4] = 0;
         grafo[6][5] = 0;
         grafo[6][6] = 0;
-        grafo[6][7] = 1;
-        grafo[6][8] = 0;
+        grafo[6][7] = 0;
+        grafo[6][8] = 1;
 
         grafo[7][0] = 0;
         grafo[7][1] = 0;
-        grafo[7][2] = 0;
+        grafo[7][2] = 1;
         grafo[7][3] = 0;
         grafo[7][4] = 0;
-        grafo[7][5] = 0;
-        grafo[7][6] = 1;
+        grafo[7][5] = 1;
+        grafo[7][6] = 0;
         grafo[7][7] = 0;
         grafo[7][8] = 0;
 
@@ -459,7 +459,7 @@ public class ProjetoMatematicaDiscreta {
         grafo[8][3] = 0;
         grafo[8][4] = 0;
         grafo[8][5] = 0;
-        grafo[8][6] = 0;
+        grafo[8][6] = 1;
         grafo[8][7] = 0;
         grafo[8][8] = 0;
 
